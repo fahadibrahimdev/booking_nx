@@ -1,12 +1,15 @@
-
 "use client";
-import React from 'react'
-import BlueYellowHeader from '@/components/header'
 
-export default function Home() {
+import BlueYellowHeader from "@/components/header";
+import React from "react";
+
+export default function page() {
   return (
-    
-       <BlueYellowHeader />
-   
-  )
+    <div className="relative">
+      <img src="home_bg.png" className="h-[700px] w-full object-cover" alt="" />
+      <div className="absolute inset-0">
+        <BlueYellowHeader />
+      </div>
+    </div>
+  );
 }
