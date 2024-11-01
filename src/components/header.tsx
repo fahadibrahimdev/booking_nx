@@ -10,10 +10,13 @@ const BlueYellowHeader: React.FC<BlueYellowHeaderProps> = ({}) => {
             <div className="bg-[#0B42AF] justify-center w-full flex"> {/* Added 1px top margin */}
                 <div className="flex space-x-80">
                     <img src="BHLOGO.avif" className="h-[90px] w-full object-cover" alt="Logo" />
-                    <div className="bg-[#3BC2FF] w-full h-[40px] mt-5 p-2 flex rounded-md">
+                    <a href="/home">
+                    <div className="bg-[#3BC2FF] w-[100px] h-[40px] mt-5 p-2 flex rounded-md">
                         <IoMdPerson className="text-blue-900 bg-[#F1C933] rounded-full text-[20px]" />
                         <button className="ml-1 font-bold text-[13px]">My Trips</button>
-                    </div>
+                    </div> 
+                    </a>
+                    
                     <div className="flex mt-5">
                         <FaPhoneAlt className="bg-[#3BC2FF] p-4 rounded-full text-[#F1C933] h-[52px] w-[52px]" />
                         <div className="flex flex-col ml-2">
