@@ -1,6 +1,4 @@
-import React from "react";
 import { BsEnvelope } from "react-icons/bs";
-import { CiTwitter } from "react-icons/ci";
 import { FaFacebookF, FaInstagramSquare, FaTwitter } from "react-icons/fa";
 import { IoPersonOutline } from "react-icons/io5";
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
