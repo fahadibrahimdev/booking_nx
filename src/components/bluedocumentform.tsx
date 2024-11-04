@@ -2,9 +2,9 @@
 import React, { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 
-interface BlueDocumentformProps {}
 
-const BlueDocumentform: React.FC<BlueDocumentformProps> = ({}) => {
+
+const BlueDocumentform = ({}) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const handleSwitch = () => {

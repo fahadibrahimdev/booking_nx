@@ -2,9 +2,9 @@ import React from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdPerson } from "react-icons/io";
 
-interface BlueYellowHeaderProps {}
 
-const BlueYellowHeader: React.FC<BlueYellowHeaderProps> = ({}) => {
+
+const BlueYellowHeader = ({}) => {
     return (
         <div className="bg-[#F1C933] w-full h-[140px] "> {/* Removed items-center */}
             <div className="bg-[#0B42AF] justify-center w-full flex"> {/* Added 1px top margin */}
