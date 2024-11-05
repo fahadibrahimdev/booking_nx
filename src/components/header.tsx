@@ -1,15 +1,16 @@
 import React from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdPerson } from "react-icons/io";
+import Image from "next/image";
 
-interface BlueYellowHeaderProps {}
 
-const BlueYellowHeader: React.FC<BlueYellowHeaderProps> = ({}) => {
+
+const BlueYellowHeader = ({}) => {
     return (
         <div className="bg-[#F1C933] w-full h-[140px] "> {/* Removed items-center */}
             <div className="bg-[#0B42AF] justify-center w-full flex"> {/* Added 1px top margin */}
                 <div className="flex space-x-80">
-                    <img src="BHLOGO.avif" className="h-[90px] w-full object-cover" alt="Logo" />
+                    <Image src={"/BHLOGO.avif"} width={170} height={100} className="object-cover" alt={""}></Image>
                     <a href="/home">
                     <div className="bg-[#3BC2FF] w-[100px] h-[40px] mt-5 p-2 flex rounded-md">
                         <IoMdPerson className="text-blue-900 bg-[#F1C933] rounded-full text-[20px]" />

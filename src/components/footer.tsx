@@ -1,14 +1,13 @@
 import React from "react";
 import { BsEnvelope } from "react-icons/bs";
-import { CiTwitter } from "react-icons/ci";
+
 import { FaFacebookF, FaInstagramSquare, FaTwitter } from "react-icons/fa";
 import { IoPersonOutline } from "react-icons/io5";
 import { LiaPhoneVolumeSolid } from "react-icons/lia";
 import { LuPhoneForwarded } from "react-icons/lu";
 
-interface FooterProps {}
 
-const Footer: React.FC<FooterProps> = ({}) => {
+const Footer = ({}) => {
   return (
     <div className="bg-white w-full h-[300px]">
       <div className="flex justify-center pt-5 space-x-52">
@@ -77,13 +76,11 @@ const Footer: React.FC<FooterProps> = ({}) => {
         <div className="flex flex-col">
           <p className="text-black font-bold text-[20px]">Find Us On</p>
           <div className="flex mt-10 space-x-3">
-          <FaTwitter className="text-white p-2 w-[30px] h-[30px] rounded-full bg-blue-500 transform transition-all duration-500 hover:rotate-[400deg] hover:opacity-0"/>
-            <FaFacebookF className="text-white p-2 w-[30px] h-[30px] rounded-full bg-blue-600 transform transition-all duration-500 hover:rotate-[400deg] hover:opacity-0" />
-            <FaInstagramSquare className="text-white p-2 w-[30px] h-[30px] rounded-full bg-red-700 transform transition-all duration-500 hover:rotate-[400deg] hover:opacity-0" />
+          <FaTwitter className="text-white p-2 w-[30px] h-[30px] rounded-full bg-blue-500 transform transition-all duration-1000 hover:rotate-[400deg]"/>
+            <FaFacebookF className="text-white p-2 w-[30px] h-[30px] rounded-full bg-blue-600 transform transition-all duration-1000 hover:rotate-[400deg]" />
+            <FaInstagramSquare className="text-white p-2 w-[30px] h-[30px] rounded-full bg-red-700 transform transition-all duration-1000 hover:rotate-[400deg]" />
           </div>
-        </div>
-
-        
+        </div>        
       </div>
     </div>
   );
