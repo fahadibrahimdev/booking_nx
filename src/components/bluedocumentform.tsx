@@ -2,13 +2,18 @@
 
 import React, { useState } from "react";
 import { FaCheck } from "react-icons/fa";
+import { DatePickerDemo } from "./datetimepicker";
 
-const BlueDocumentForm = ({}) => {
+
+const BlueDocumentForm = () => {
   const [isChecked, setIsChecked] = useState(false);
+  const [isFromFocused, setIsFromFocused] = useState(false);
+  const [isToFocused, setIsToFocused] = useState(false);
 
   const handleSwitch = () => {
     setIsChecked(!isChecked);
   };
+  
 
   return (
     <div className="flex justify-center mt-20">
@@ -37,46 +42,57 @@ const BlueDocumentForm = ({}) => {
             />
             <span className="text-black">One Way</span>
             {isChecked && (
-              <FaCheck className="text-white absolute  right-[75px]" />
+              <FaCheck className="text-white absolute right-[75px]" />
             )}
           </label>
         </div>
-        
 
-        <div className="">
-        <div className="mb-4 flex">
-          <label
-            htmlFor="departure-city"
-            className="block mt-4 font-bold text-black mb-1"
-          >
-            From
-          </label>
-          <input
-            type="text"
-            id="departure-city"
-            name="departure-city"
-            placeholder="Departure city name"
-            className="mt-1 block w-[450px] p-3 rounded-sm  ml-3 shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
-          />
+        <div className="flex flex-row mt-5 space-x-5 justify-center">
+          <div className="mb-4 flex">
+            <label
+              htmlFor="departure-city-from"
+              className={`block mt-4 font-bold mb-1 ${isFromFocused ? 'text-red-500' : 'text-black'}`}
+            >
+              From
+            </label>
+            <input
+              type="text"
+              id="departure-city-from"
+              name="departure-city-from"
+              placeholder="Departure city name"
+              onFocus={() => setIsFromFocused(true)}
+              onBlur={() => setIsFromFocused(false)}
+              className="mt-1 block w-[450px] p-3 rounded-sm ml-3 shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
+
+          <div className="mb-4 flex">
+            <label
+              htmlFor="departure-city-to"
+              className={`block mt-4 font-bold mb-1 ${isToFocused ? 'text-red-500' : 'text-black'}`}
+            >
+              To
+            </label>
+            <input
+              type="text"
+              id="departure-city-to"
+              name="departure-city-to"
+              placeholder="Return city name"
+              onFocus={() => setIsToFocused(true)}
+              onBlur={() => setIsToFocused(false)}
+              className="mt-1 block w-[450px] p-3 rounded-sm ml-3 shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
         </div>
 
-        <div className="mb-4 flex">
-          <label
-            htmlFor="departure-city"
-            className="block mt-4 font-bold text-black mb-1"
-          >
-            to
-          </label>
-          <input
-            type="text"
-            id="departure-city"
-            name="departure-city"
-            placeholder="Departure city name"
-            className="mt-1 block w-[450px] p-3 rounded-sm  ml-3 shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
-          />
-        </div>
-        </div>
 
+         <div className="flex flex-row space-x-5 justify-center ml-12">
+         <div className="bg-white w-[465px] p-5 flex justify-end">
+          <DatePickerDemo/>
+        </div>
+        <div className="bg-white w-[465px] p-5">
+        </div>
+         </div>
         
       </div>
     </div>
