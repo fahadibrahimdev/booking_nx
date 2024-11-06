@@ -3,6 +3,7 @@ import BlueDocumentForm from "@/components/bluedocumentform";
 import Footer from "@/components/footer";
 import BlueYellowHeader from "@/components/header";
 import React from "react";
+import GradientTextComp from "@/components/gradienttextcomp";
 
 export default function page() {
   return (
@@ -14,9 +15,18 @@ export default function page() {
           <BlueDocumentForm />
         </div>
       </div>
-      <div>
+
+      
+        <div className="flex justify-center">
+        <p className="text-[30px] font-bold pt-16 text-[#0B43B1]">Our Services</p>
+        </div>
+
+        
+        <GradientTextComp />
+      
+      {/* <div>
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 }
