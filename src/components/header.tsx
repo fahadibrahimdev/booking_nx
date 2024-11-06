@@ -13,7 +13,7 @@ const BlueYellowHeader = ({}) => {
         <div className="bg-[#F1C933] w-full h-[140px] "> {/* Removed items-center */}
             <div className="bg-[#0B42AF] justify-center w-full flex"> {/* Added 1px top margin */}
                 <div className="flex space-x-80">
-                    <Image src={"/BHLOGO.avif"} width={170} height={100} className="object-cover" alt={""}></Image>
+                   
                 <Image src="/BHLOGO.avif"
                 width={1920}
                 height={750}

@@ -22,7 +22,7 @@ export default function page() {
         <p className="text-[30px] font-bold pt-16 text-[#0B43B1]">Our Services</p>
         </div>
 
-        
+
         <GradientTextComp />
       
       {/* <div>
