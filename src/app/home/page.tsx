@@ -3,6 +3,7 @@ import BlueDocumentForm from "@/components/bluedocumentform";
 import Footer from "@/components/footer";
 import BlueYellowHeader from "@/components/header";
 import React from "react";
+import Image from "next/image";
 
 export default function page() {
   return (

@@ -1,4 +1,3 @@
-import React from "react";
 import { BsEnvelope } from "react-icons/bs";
 
 import { FaFacebookF, FaInstagramSquare, FaTwitter } from "react-icons/fa";
@@ -7,6 +6,7 @@ import { LiaPhoneVolumeSolid } from "react-icons/lia";
 import { LuPhoneForwarded } from "react-icons/lu";
 
 
+const Footer = ({}) => {
 const Footer = ({}) => {
   return (
     <div className="bg-white w-full h-[300px]">
