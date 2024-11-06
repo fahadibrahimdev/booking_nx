@@ -5,6 +5,7 @@ import BlueYellowHeader from "@/components/header";
 import React from "react";
 import GradientTextComp from "@/components/gradienttextcomp";
 
+
 export default function page() {
   return (
     <div className="relative">

@@ -1,4 +1,3 @@
-import React from "react";
 import { BsEnvelope } from "react-icons/bs";
 
 import { FaFacebookF, FaInstagramSquare, FaTwitter } from "react-icons/fa";
@@ -8,6 +7,7 @@ import { LuPhoneForwarded } from "react-icons/lu";
 
 
 const Footer = ({}) => {
+
   return (
     <div className="bg-white w-full h-[300px]">
       <div className="flex justify-center pt-5 space-x-52">
