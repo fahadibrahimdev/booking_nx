@@ -3,10 +3,6 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdPerson } from "react-icons/io";
 import Image from "next/image";
 
-
-
-
-
 const BlueYellowHeader = ({}) => {
 
     return (

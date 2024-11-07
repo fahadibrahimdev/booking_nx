@@ -16,7 +16,7 @@ const BlueDocumentForm = () => {
   const [infantCount, setInfantCount] = useState(0);
   const [selectedClass, setSelectedClass] = useState("Select");
 
-  // Dropdown state and toggle logic
+
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
     setIsOpen((prevState) => !prevState);
@@ -32,33 +32,22 @@ const BlueDocumentForm = () => {
   };
 
   const incrementAdults = () => {
-    if (adultCount < 9) {
-      setAdultCount(adultCount + 1);
-    }
-  };
+    setAdultCount(childCount + 1);      
+};
 
-  const decrementAdults = () => {
-    if (adultCount > 1) {
-      setAdultCount(adultCount - 1);
-    }
-  };
-
-  const incrementChildren = () => {
-    if (childCount < 9) {
-      setChildCount(childCount + 1);
-    }
-  };
-
+const decrementAdults = () => {
+  if (infantCount > 0) {
+    setAdultCount(infantCount - 1);
+  }
+};
   const decrementChildren = () => {
     if (childCount > 0) {
       setChildCount(childCount - 1);
     }
   };
 
-  const incrementInfants = () => {
-    if (infantCount < 9) {
-      setInfantCount(infantCount + 1);
-    }
+  const incrementChildren = () => {
+      setChildCount(childCount + 1);      
   };
 
   const decrementInfants = () => {
@@ -66,6 +55,38 @@ const BlueDocumentForm = () => {
       setInfantCount(infantCount - 1);
     }
   };
+
+  const incrementInfants = () => {
+    setInfantCount(infantCount + 1);
+  };
+
+  const updateChildCount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value);
+    // Ensure the value is a valid non-negative integer
+    if (!isNaN(value) && value >= 0) {
+      setChildCount(value);
+    }
+  };
+  
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Allow empty input or numbers only
+    if (value === "" || /^\d+$/.test(value)) {
+      setAdultCount(value === "" ? 0 : parseInt(value, 10));
+    }
+  };
+
+
+  // handleInputChange  setAdultCount
+
+
+const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const value = e.target.value;
+  // Allow empty input or numbers only
+  if (value === "" || /^\d+$/.test(value)) {
+    setInfantCount(value === "" ? 0 : parseInt(value, 10));
+  }
+};
 
   return (
     <div className="flex justify-center mt-20">
@@ -155,10 +176,10 @@ const BlueDocumentForm = () => {
                 <FiMinus className="bg-pink-500 h-[30px] w-[25px] p-2 rounded-l-md" />
               </button>
               <input
-                type="text"
+                type="number"
                 value={adultCount}
-                readOnly
-                className="w-[250px] text-center h-[30px] border-2 border-white"
+                onChange={handleInputChange}
+                className="[&::-webkit-inner-spin-button]:appearance-none text-center [&::-webkit-outer-spin-button]:m-0 [appearance:textfield] border border-gray-300 rounded p-2 h-[30px] w-[250px]"
               />
               <button onClick={incrementAdults}>
                 <FaPlus className="bg-green-500 h-[30px] w-[25px] p-2 rounded-r-md" />
@@ -175,10 +196,10 @@ const BlueDocumentForm = () => {
                 <FiMinus className="bg-pink-500 h-[30px] w-[25px] p-2 rounded-l-md" />
               </button>
               <input
-                type="text"
+                type="number"
                 value={childCount}
-                readOnly
-                className="w-[250px] text-center h-[30px] border-2 border-white"
+                onChange={updateChildCount} // Using the renamed function
+                className="[&::-webkit-inner-spin-button]:appearance-none text-center [&::-webkit-outer-spin-button]:m-0 [appearance:textfield] border border-gray-300 rounded p-2 h-[30px] w-[250px]"
               />
               <button onClick={incrementChildren}>
                 <FaPlus className="bg-green-500 h-[30px] w-[25px] p-2 rounded-r-md" />
@@ -197,7 +218,7 @@ const BlueDocumentForm = () => {
               <input
                 type="text"
                 value={infantCount}
-                readOnly
+                onChange={updateInfantCount}
                 className="w-[250px] text-center h-[30px] border-2 border-white"
               />
               <button onClick={incrementInfants}>
@@ -282,5 +303,4 @@ const BlueDocumentForm = () => {
     </div>
   );
 };
-
 export default BlueDocumentForm;
