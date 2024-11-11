@@ -6,7 +6,6 @@ import { DatePickerDemo } from "./datetimepicker";
 import { FiMinus } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 
-
 const BlueDocumentForm = () => {
   const [isChecked, setIsChecked] = useState(false);
   const [isFromFocused, setIsFromFocused] = useState(false);
@@ -15,7 +14,6 @@ const BlueDocumentForm = () => {
   const [childCount, setChildCount] = useState(0);
   const [infantCount, setInfantCount] = useState(0);
   const [selectedClass, setSelectedClass] = useState("Select");
-
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
@@ -32,14 +30,14 @@ const BlueDocumentForm = () => {
   };
 
   const incrementAdults = () => {
-    setAdultCount(childCount + 1);      
-};
+    setAdultCount(childCount + 1);
+  };
 
-const decrementAdults = () => {
-  if (infantCount > 0) {
-    setAdultCount(infantCount - 1);
-  }
-};
+  const decrementAdults = () => {
+    if (infantCount > 0) {
+      setAdultCount(infantCount - 1);
+    }
+  };
   const decrementChildren = () => {
     if (childCount > 0) {
       setChildCount(childCount - 1);
@@ -47,7 +45,7 @@ const decrementAdults = () => {
   };
 
   const incrementChildren = () => {
-      setChildCount(childCount + 1);      
+    setChildCount(childCount + 1);
   };
 
   const decrementInfants = () => {
@@ -67,7 +65,7 @@ const decrementAdults = () => {
       setChildCount(value);
     }
   };
-  
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     // Allow empty input or numbers only
@@ -76,17 +74,15 @@ const decrementAdults = () => {
     }
   };
 
-
   // handleInputChange  setAdultCount
 
-
-const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
-  const value = e.target.value;
-  // Allow empty input or numbers only
-  if (value === "" || /^\d+$/.test(value)) {
-    setInfantCount(value === "" ? 0 : parseInt(value, 10));
-  }
-};
+  const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    // Allow empty input or numbers only
+    if (value === "" || /^\d+$/.test(value)) {
+      setInfantCount(value === "" ? 0 : parseInt(value, 10));
+    }
+  };
 
   return (
     <div className="flex justify-center mt-20">
@@ -116,21 +112,20 @@ const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
             />
             <span className="text-black">One Way</span>
             {isChecked && (
-              <FaCheck className="text-white absolute right-[75px]" />
+              <FaCheck className="text-white absolute right-[75px]"/>
             )}
           </label>
         </div>
 
         <div className="grid grid-cols-2 gap-4 justify-center mx-5 mt-4">
-          <div className="mb-4 flex">
-            <label
-              htmlFor="departure-city-from"
-              className={`block mt-4 font-bold mb-1 ${
+          <div className="mb-4 relative">
+            <p
+              className={`absolute left-4 top-1/2 transform -translate-y-1/2 font-bold transition-colors ${
                 isFromFocused ? "text-red-500" : "text-black"
               }`}
             >
               From
-            </label>
+            </p>
             <input
               type="text"
               id="departure-city-from"
@@ -138,19 +133,18 @@ const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
               placeholder="Departure city name"
               onFocus={() => setIsFromFocused(true)}
               onBlur={() => setIsFromFocused(false)}
-              className="mt-1 block w-[450px] p-3 rounded-sm ml-3 shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
+              className="block w-[450px] p-3 pl-20 mt-0.5 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
             />
           </div>
 
-          <div className="mb-4 flex">
-            <label
-              htmlFor="departure-city-to"
-              className={`block mt-4 font-bold mb-1 ${
+          <div className="mb-4 relative">
+            <p
+              className={`absolute left-4 top-1/2 transform -translate-y-1/2 font-bold transition-colors ${
                 isToFocused ? "text-red-500" : "text-black"
               }`}
             >
               To
-            </label>
+            </p>
             <input
               type="text"
               id="departure-city-to"
@@ -158,18 +152,18 @@ const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
               placeholder="Return city name"
               onFocus={() => setIsToFocused(true)}
               onBlur={() => setIsToFocused(false)}
-              className="mt-1 block w-[450px] p-3 rounded-sm ml-3 shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
+              className="block w-[450px] p-3 pl-16 mt-0.5 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
             />
           </div>
 
-          <div className="col-span-2 flex justify-center space-x-5 ml-5">
+          <div className="col-span-2 flex justify-center space-x-5 ">
             <DatePickerDemo />
             <DatePickerDemo />
           </div>
         </div>
 
-        <div className="flex flex-row justify-center items-center space-x-5 mt-4 ml-10">
-          <div className="flex flex-col items-center">
+        <div className="flex flex-row justify-center items-center space-x-2 mt-4">
+          <div className="flex flex-col justify-center">
             <p className="text-white text-[10px] font-bold">Adults (12+ Yrs)</p>
             <div className="flex items-center pt-1">
               <button onClick={decrementAdults}>
@@ -199,8 +193,7 @@ const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
                 type="number"
                 value={childCount}
                 onChange={updateChildCount} // Using the renamed function
-                className="[&::-webkit-inner-spin-button]:appearance-none text-center [&::-webkit-outer-spin-button]:m-0 [appearance:textfield] border border-gray-300 rounded p-2 h-[30px] w-[250px]"
-              />
+                className="[&::-webkit-inner-spin-button]:appearance-none text-center [&::-webkit-outer-spin-button]:m-0 [appearance:textfield] border border-gray-300 rounded p-2 h-[30px] w-[250px]"/>
               <button onClick={incrementChildren}>
                 <FaPlus className="bg-green-500 h-[30px] w-[25px] p-2 rounded-r-md" />
               </button>
@@ -219,8 +212,7 @@ const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
                 type="text"
                 value={infantCount}
                 onChange={updateInfantCount}
-                className="w-[250px] text-center h-[30px] border-2 border-white"
-              />
+                className="[&::-webkit-inner-spin-button]:appearance-none text-center [&::-webkit-outer-spin-button]:m-0 [appearance:textfield] border border-gray-300 rounded p-2 h-[30px] w-[250px]"/>
               <button onClick={incrementInfants}>
                 <FaPlus className="bg-green-500 h-[30px] w-[25px] p-2 rounded-r-md" />
               </button>
@@ -229,7 +221,7 @@ const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
         </div>
 
         <div className="flex space-x-5">
-          <div className="mt-5 bg-white w-[370px] rounded-md p-2 relative">
+          <div className="mt-5 bg-white w-[450px] h-[45px] p-2 rounded-md relative">
             <div className="flex justify-between" onClick={toggleDropdown}>
               <div className="flex">
                 <p className="font-bold">Class</p>
@@ -277,28 +269,34 @@ const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
               </div>
             )}
           </div>
-          <div className="bg-white w-[370px] rounded-md h-[50px] mt-5">
+          <div className="bg-white w-[450px] rounded-md h-[45px] mt-5">
             <p className="mt-3 ml-2">Airline</p>
           </div>
-          <div className="flex items-center mt-5">
-            <input
-              id="link-checkbox"
-              type="checkbox"
-              value=""
-              className="w-6 h-6 rounded-md text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-            />
-            <label
-              htmlFor="link-checkbox"
-              className="ms-2 text-sm font-medium text-white dark:text-gray-300"
-            >
-              Direct Flights
-            </label>
-          </div>
+          
         </div>
-        <button className="flex bg-[#F1C933] mt-5 rounded-md p-3 w-[200px] justify-center items-center">
-          <FaSearch className="text-[#0B43B1] font-bold" />
-          <p className="text-[#0B43B1] font-bold ml-3">Find Deals</p>
-        </button>
+
+        <div className="flex space-x-10">
+  <button className="flex bg-[#F1C933] mt-5 rounded-md p-3 w-[200px] justify-center items-center mx-auto">
+    <FaSearch className="text-[#0B43B1] font-bold" />
+    <p className="text-[#0B43B1] font-bold ml-3">Find Deals</p>
+  </button>
+
+  <div className="flex justify-end mt-8 ">
+    <input
+      id="link-checkbox"
+      type="checkbox"
+      className="w-6 h-6 rounded-md text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+    />
+    <label
+      htmlFor="link-checkbox"
+      className="ms-2 text-sm font-medium text-white dark:text-gray-300"
+    >
+      Direct Flights
+    </label>
+  </div>
+</div>
+
+       
       </div>
     </div>
   );

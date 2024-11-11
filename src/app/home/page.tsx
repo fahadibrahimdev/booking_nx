@@ -7,15 +7,16 @@ import GradientTextComp from "@/components/gradienttextcomp";
 import { MdEuroSymbol } from "react-icons/md";
 import { FaBook } from "react-icons/fa";
 import { IoLockClosedSharp, IoPersonCircleOutline } from "react-icons/io5";
+import HoverImgCard from "@/components/hoverimgcard";
 
-export default function page() {
+export default function Page() {
   const Gradienttext = [
     {
       id: 1,
       headingtext1: "Sure Cheap Prices",
       subheadingtext2:
         "Search our lowest rates to international destinations. Explore the globe for journeying right here with us.",
-       Icon: MdEuroSymbol
+      Icon: MdEuroSymbol,
     },
 
     {
@@ -23,7 +24,7 @@ export default function page() {
       headingtext1: "Simple Way to Book",
       subheadingtext2:
         "The method of flight booking is very simple and completes within a few clicks. Just Search, Select and Submit to us",
-       Icon: FaBook
+      Icon: FaBook,
     },
 
     {
@@ -31,7 +32,7 @@ export default function page() {
       headingtext1: "Dedicated Customer Support",
       subheadingtext2:
         "Bright Holiday always prioritize the premium client services. Our dedicated staff stay live, and respond to customers timely.",
-       Icon: IoPersonCircleOutline
+      Icon: IoPersonCircleOutline,
     },
 
     {
@@ -39,7 +40,70 @@ export default function page() {
       headingtext1: "Financial Protection",
       subheadingtext2:
         "We are working under ATOL organizations. Making sure your peace of mind as yours reserving & money is safe with us.",
-       Icon: IoLockClosedSharp
+      Icon: IoLockClosedSharp,
+    },
+  ];
+
+  const Hovercard = [
+    {
+      id: "1",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },
+    {
+      id: "2",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },
+    {
+      id: "3",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },
+    {
+      id: "4",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },
+    {
+      id: "5",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },
+    {
+      id: "6",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },
+    {
+      id: "7",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },  
+    {
+      id: "8",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },
+    {
+      id: "9",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },
+    {
+      id: "10",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },
+    {
+      id: "11",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
+    },
+    {
+      id: "12",
+      hoverImg: "ManilaPhilippines(1).avif",
+      headingtext: "Manila, Philippines"
     },
   ];
 
@@ -65,19 +129,43 @@ export default function page() {
         </p>
       </div>
       <div className="flex flex-row justify-center space-x-5 pt-20">
-      {Gradienttext.map(item => (
-        <GradientTextComp
-          key={item.id} // Always provide a unique key when using map
-          headingtext1={item.headingtext1}
-          subheadingtext2={item.subheadingtext2}
-          icon={item.Icon}
-        />
-      ))}
-    </div>
-
-      <div>
-        <Footer />
+        {Gradienttext.map((item) => (
+          <GradientTextComp
+            key={item.id}
+            headingtext1={item.headingtext1}
+            subheadingtext2={item.subheadingtext2}
+            icon={item.Icon}
+          />
+        ))}
       </div>
+      <div className="bg-[#F8F8F8] w-full h-full mt-20">
+
+        <p className="text-[#0B42B0] text-[30px] font-bold text-center pt-20">
+          Latest Airlines Deals
+        </p>
+
+        <p className="text-gray-600 font-bold text-[15px] text-center">
+          See below extraordinary series of our Airlines Deals
+        </p>
+
+        <div className="flex justify-center">
+        <div className="flex flex-wrap p-10 gap-5 w-[80%]">
+          {Hovercard.map((card) => (
+            <HoverImgCard key={card.id} 
+            hoverImg={card.hoverImg} 
+            headingtext={card.headingtext}
+            />
+          ))}
+        </div>
+        </div>
+        
+        
+      </div>
+
+
+    
+        <Footer />
+      
     </div>
   );
 }
