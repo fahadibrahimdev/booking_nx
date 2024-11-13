@@ -6,7 +6,7 @@ const YellowContainer = () => {
     <div className="bg-[#FFDB1A] w-full p-2 flex flex-row justify-center">
       <div>
         <p className="text-white font-bold text-[30px] leading-tight">
-          Subcribe to our
+          Subscribe to our
         </p>
         <p className="text-white font-bold text-[30px] ml-16 leading-tight">
           Newsletter
@@ -33,9 +33,9 @@ const YellowContainer = () => {
             aria-label="Destination"
           />
         </div>
-        <button className="flex p-3 h-[47px] mt-2 border-2 border-black cursor-pointer hover:bg-black hover:text-white">
-          <FaLocationArrow className="mt-0.5 text-black hover:text-white" />
-          <p className="text-[14px] font-bold ml-2 text-black hover:text-white">
+        <button className="group flex p-3 h-[47px] mt-2 border-2 border-black cursor-pointer hover:bg-black">
+          <FaLocationArrow className="mt-0.5 text-black group-hover:text-white" />
+          <p className="text-[14px] font-bold ml-2 text-black group-hover:text-white">
             Subscribe
           </p>
         </button>
