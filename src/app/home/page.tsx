@@ -123,71 +123,80 @@ export default function Page() {
 
   return (
     <div className="relative">
+      {/* Background image */}
       <Image
         src={"/home_bg.png"}
         height={750}
         width={1960}
         className="h-[750px] w-full object-cover"
         alt={""}
-      ></Image>
-      <div className="absolute inset-0">
+      />
+
+      {/* Fixed Blue-Yellow Header */}
+      <div className="absolute inset-x-0 top-0 z-50">
         <BlueYellowHeader />
-        <div>
-          <BlueDocumentForm />
-        </div>
       </div>
 
-      <div className="flex justify-center">
-        <p className="text-[30px] font-bold pt-16 text-[#0B43B1]">
-          Our Services
-        </p>
+      {/* Fixed Form */}
+      <div className="absolute inset-x-0 top-[80px] z-40">
+        <BlueDocumentForm />
       </div>
-      <div className="flex flex-row justify-center space-x-5 pt-20">
-        {Gradienttext.map((item) => (
-          <GradientTextComp
-            key={item.id}
-            headingtext1={item.headingtext1}
-            subheadingtext2={item.subheadingtext2}
-            icon={item.Icon}
-          />
-        ))}
+
+      <div className="flex justify-center pt-16">
+        <p className="text-[30px] font-bold text-[#0B43B1]">Our Services</p>
       </div>
-      <div className="bg-[#F8F8F8] w-full h-full mt-20">
 
-        <p className="text-[#0B42B0] text-[30px] font-bold text-center pt-20">
-          Latest Airlines Deals
-        </p>
-
-        <p className="text-gray-600 font-bold text-[15px] text-center">
-          See below extraordinary series of our Airlines Deals
-        </p>
-
-        <div className="flex justify-center">
-        <div className="flex flex-wrap p-10 gap-5 w-[80%]">
-          {Hovercard.map((card) => (
-            <HoverImgCard key={card.id} 
-            hoverImg={card.hoverImg} 
-            headingtext={card.headingtext}
-            price={card.price}
+      {/* Scrollable Content Section */}
+      <div className="pt-20 pb-10 overflow-auto mt-[150px]">
+        <div className="flex flex-row justify-center space-x-5">
+          {Gradienttext.map((item) => (
+            <GradientTextComp
+              key={item.id}
+              headingtext1={item.headingtext1}
+              subheadingtext2={item.subheadingtext2}
+              icon={item.Icon}
             />
           ))}
         </div>
-        </div>
 
-       <div>
-        <BlueImgComp />
-       </div>
+        <div className="bg-[#F8F8F8] w-full h-full mt-20">
+          <p className="text-[#0B42B0] text-[30px] font-bold text-center pt-20">
+            Latest Airlines Deals
+          </p>
+          <p className="text-gray-600 font-bold text-[15px] text-center">
+            See below extraordinary series of our Airlines Deals
+          </p>
 
+          {/* Cards Section */}
+          <div className="flex justify-center">
+            <div className="flex flex-wrap p-10 gap-5 w-[80%]">
+              {Hovercard.map((card) => (
+                <HoverImgCard 
+                  key={card.id} 
+                  hoverImg={card.hoverImg} 
+                  headingtext={card.headingtext} 
+                  price={card.price} 
+                />
+              ))}
+            </div>
+          </div>
 
-        <div className="pt-10">
-          <YellowContainer />
+          {/* Blue Image Section */}
+          <div>
+            <BlueImgComp />
+          </div>
+
+          {/* Yellow Container Section */}
+          <div className="pt-10 mb-72">
+            <YellowContainer />
+          </div>
         </div>
       </div>
 
-      <div>
-      <Footer />
+      {/* Fixed Footer */}
+      <div className="fixed bottom-0 left-0 right-0 z-50">
+        <Footer />
       </div>
-        
     </div>
   );
 }
