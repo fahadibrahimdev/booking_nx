@@ -5,9 +5,10 @@ import React from "react";
 interface HoverImgCardProps {
   hoverImg?: string;
   headingtext?: string;
+  price?: string;
 }
 
-const HoverImgCard: React.FC<HoverImgCardProps> = ({ hoverImg, headingtext }) => {
+const HoverImgCard: React.FC<HoverImgCardProps> = ({ hoverImg, headingtext, price }) => {
   return (
     <div className="w-[280px] h-[300px] relative group">
       <div className="h-2/3 relative overflow-hidden">
@@ -16,9 +17,9 @@ const HoverImgCard: React.FC<HoverImgCardProps> = ({ hoverImg, headingtext }) =>
           className="w-full h-full object-cover transition duration-300 ease-in-out transform group-hover:scale-110"
           alt=""
         />
-        {/* Text overlay on hover */}
-        <div className="absolute inset-0 flex items-end justify-center opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out text-white">
-          <p className="font-bold text-lg text-black mb-20 transform translate-y-8 group-hover:translate-y-0 transition duration-300 ease-in-out">
+        {/* Full background overlay on hover with text slide-up effect */}
+        <div className="absolute inset-0 flex items-center justify-center bg-white bg-opacity-80 opacity-0 group-hover:opacity-100 transition duration-300 ease-in-out">
+          <p className="font-bold text-lg text-black mb-16s transform translate-y-8 group-hover:translate-y-0 transition duration-300 ease-in-out">
             {headingtext}
           </p>
         </div>
@@ -31,7 +32,7 @@ const HoverImgCard: React.FC<HoverImgCardProps> = ({ hoverImg, headingtext }) =>
           <div className="flex flex-col">
             <div className="flex mt-5">
               <p className="text-gray-400 text-[13px]">Starting from</p>
-              <p className="font-bold ml-2">&euro;20</p>
+              <p className="font-bold ml-2">{price}</p>
             </div>
             <p className="text-gray-400">/pp</p>
           </div>

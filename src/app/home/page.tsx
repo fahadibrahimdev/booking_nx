@@ -8,6 +8,8 @@ import { MdEuroSymbol } from "react-icons/md";
 import { FaBook } from "react-icons/fa";
 import { IoLockClosedSharp, IoPersonCircleOutline } from "react-icons/io5";
 import HoverImgCard from "@/components/hoverimgcard";
+import YellowContainer from "@/components/yellowcontainer";
+import BlueImgComp from "@/components/blueimgcomp";
 
 export default function Page() {
   const Gradienttext = [
@@ -48,62 +50,74 @@ export default function Page() {
     {
       id: "1",
       hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      headingtext: "Manila, Philippines",
+      price: "£ 437"
     },
     {
       id: "2",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      hoverImg: "lagos-nigeria.avif",
+      headingtext: "Lagos, Nigeria",
+      price: "£ 390"
     },
     {
       id: "3",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      hoverImg: "Accra-Ghana.avif",
+      headingtext: "Accra, Ghana",
+      price: "£ 401"
     },
     {
       id: "4",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      hoverImg: "HARARE-ZIMBABWE.avif",
+      headingtext: "Harare, Zimbabwe",
+      price: "£ 457"
     },
     {
       id: "5",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      hoverImg: "nairobi-kenya.jpg",
+      headingtext: "Nairobi, Kenya",
+      price: "£ 328"
     },
     {
       id: "6",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      hoverImg: "entebbe-uganda.jpg",
+      headingtext: "Entebbe, Uganda",
+      price: "£ 331"
     },
     {
       id: "7",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      hoverImg: "ADDISABABA-Ethiopia.avif",
+      headingtext: "Addis Ababa, Ethiopia",
+      price: "£ 346"
     },  
     {
       id: "8",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      hoverImg: "johannesburg-southafrica.jpg",
+      headingtext: "Johannesburg, South Africa",
+      price: "£ 372"
     },
     {
       id: "9",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      hoverImg: "abuja-nigeria.avif",
+      headingtext: "abuja-nigeria.avif",
+      price: "£ 560"
     },
     {
       id: "10",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      hoverImg: "dakar-senegal.jpg",
+      headingtext: "Dakar, Senegal",
+      price: "£ 355"
     },
     {
       id: "11",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
-    },
+      hoverImg: "FREETOWN-SIERRALEONE.jpg",
+      headingtext: "Freetown, Sierra Leone",
+      price: "£ 396"
+    },  
     {
       id: "12",
-      hoverImg: "ManilaPhilippines(1).avif",
-      headingtext: "Manila, Philippines"
+      hoverImg: "MOMBASA-KENYA.avif",
+      headingtext: "Mombasa, Kenya",
+      price: "£ 490"
     },
   ];
 
@@ -154,18 +168,26 @@ export default function Page() {
             <HoverImgCard key={card.id} 
             hoverImg={card.hoverImg} 
             headingtext={card.headingtext}
+            price={card.price}
             />
           ))}
         </div>
         </div>
-        
-        
+
+       <div>
+        <BlueImgComp />
+       </div>
+
+
+        <div className="pt-10">
+          <YellowContainer />
+        </div>
       </div>
 
-
-    
-        <Footer />
-      
+      <div>
+      <Footer />
+      </div>
+        
     </div>
   );
 }
