@@ -14,6 +14,7 @@ const BlueDocumentForm = () => {
   const [childCount, setChildCount] = useState(0);
   const [infantCount, setInfantCount] = useState(0);
   const [selectedClass, setSelectedClass] = useState("Select");
+  const [open, setisOpen] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
@@ -27,6 +28,7 @@ const BlueDocumentForm = () => {
 
   const handleSwitch = () => {
     setIsChecked(!isChecked);
+    console.log("state change" ,isChecked)
   };
 
   const incrementAdults = () => {
@@ -92,7 +94,8 @@ const BlueDocumentForm = () => {
         </p>
 
         <div className="flex space-x-5 mt-4">
-          <label className="flex items-center cursor-pointer space-x-2 relative">
+          
+          <label className={`flex items-center cursor-pointer  space-x-2 relative`}>
             <input
               type="checkbox"
               checked={!isChecked}
@@ -157,7 +160,8 @@ const BlueDocumentForm = () => {
           </div>
 
           <div className="col-span-2 flex justify-center space-x-5 ">
-            <DatePickerDemo />
+            {!isChecked?(<DatePickerDemo />):("")}
+            
             <DatePickerDemo />
           </div>
         </div>

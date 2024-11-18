@@ -84,17 +84,20 @@ const Footer = () => {
       </div>
 
       {/* WhatsApp Logo Fixed Position */}
-      <a href="https://api.whatsapp.com/send/?phone=%2B447477967412&text=Hi+Dear+Travel+Agent%2C+Please+find+best+Airline+tickets+for+me.&type=phone_number&app_absent=0" target="_blank" rel="noopener noreferrer">
-  <div className="fixed bottom-32 right-5">
-    <Image
-      src="/whatsapplogo.png" // Replace with the actual path to your image
-      alt="Company Logo"
-      width={70}
-      height={70}
-    />
-  </div>
-</a>
-
+      <a
+        href="https://api.whatsapp.com/send/?phone=%2B447477967412&text=Hi+Dear+Travel+Agent%2C+Please+find+best+Airline+tickets+for+me.&type=phone_number&app_absent=0"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div className="fixed bottom-32 right-5">
+          <Image
+            src="/whatsapplogo.png" // Replace with the actual path to your image
+            alt="Company Logo"
+            width={70}
+            height={70}
+          />
+        </div>
+      </a>
     </div>
   );
 };
