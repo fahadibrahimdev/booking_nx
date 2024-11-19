@@ -8,7 +8,11 @@ interface HoverImgCardProps {
   price?: string;
 }
 
-const HoverImgCard: React.FC<HoverImgCardProps> = ({ hoverImg, headingtext, price }) => {
+const HoverImgCard: React.FC<HoverImgCardProps> = ({
+  hoverImg,
+  headingtext,
+  price,
+}) => {
   return (
     <div className="w-[280px] h-[300px] relative group">
       <div className="h-2/3 relative overflow-hidden">
@@ -36,9 +40,12 @@ const HoverImgCard: React.FC<HoverImgCardProps> = ({ hoverImg, headingtext, pric
             </div>
             <p className="text-gray-400">/pp</p>
           </div>
-          <button className="bg-[#F1C933] mt-10 p-2 w-[80px] h-[35px] text-blue-500 text-[13px]">
-            Book Now
-          </button>
+          <button className="bg-[#F1C933] mt-10 w-[90px] h-[35px] text-blue-500 text-[13px] flex justify-center items-center">
+  <div className="hover:bg-white hover:border-2 hover:border-gray-400 rounded-md p-1 w-[80px] opacity-70 h-[30px] text-center">
+    Book Now
+  </div>
+</button>
+
         </div>
       </div>
     </div>

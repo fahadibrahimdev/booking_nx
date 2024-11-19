@@ -13,9 +13,10 @@ const BlueDocumentForm = () => {
   const [adultCount, setAdultCount] = useState(1);
   const [childCount, setChildCount] = useState(0);
   const [infantCount, setInfantCount] = useState(0);
-  const [selectedClass, setSelectedClass] = useState("Select");
-
+  const [selectedClass, setSelectedClass] = useState("Economy");
+  const [isAirlineFocused, setIsAirlineFocused] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
   const toggleDropdown = () => {
     setIsOpen((prevState) => !prevState);
   };
@@ -27,26 +28,35 @@ const BlueDocumentForm = () => {
 
   const handleSwitch = () => {
     setIsChecked(!isChecked);
-    console.log("state change" ,isChecked)
   };
 
   const incrementAdults = () => {
-    setAdultCount(childCount + 1);
+    setAdultCount(adultCount + 1); // Simply increment, no upper limit in this case.
   };
-
+  
   const decrementAdults = () => {
-    if (infantCount > 0) {
-      setAdultCount(infantCount - 1);
+    if (adultCount > 12) {
+      setAdultCount(adultCount - 1); // Decrease only if it's greater than 12.
     }
   };
+  
+
+  const incrementChildren = () => {
+    if (childCount < 11) {
+      setChildCount(childCount + 1);
+    }
+  };
+
   const decrementChildren = () => {
-    if (childCount > 0) {
+    if (childCount > 2) {
       setChildCount(childCount - 1);
     }
   };
 
-  const incrementChildren = () => {
-    setChildCount(childCount + 1);
+  const incrementInfants = () => {
+    if (infantCount < 9) {
+      setInfantCount(infantCount + 1);
+    }
   };
 
   const decrementInfants = () => {
@@ -55,32 +65,24 @@ const BlueDocumentForm = () => {
     }
   };
 
-  const incrementInfants = () => {
-    setInfantCount(infantCount + 1);
-  };
-
   const updateChildCount = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = parseInt(e.target.value);
-    // Ensure the value is a valid non-negative integer
-    if (!isNaN(value) && value >= 0) {
-      setChildCount(value);
+    const value = e.target.value;
+    if ((value === "" || /^\d+$/.test(value)) && (value === "" || parseInt(value, 11) <= 9)) {
+      setChildCount(value === "" ? 0 : parseInt(value, 10));
     }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    // Allow empty input or numbers only
-    if (value === "" || /^\d+$/.test(value)) {
-      setAdultCount(value === "" ? 0 : parseInt(value, 10));
+    if ((value === "" || /^\d+$/.test(value)) && (value === "" || parseInt(value, 10) >= 12)) {
+      setAdultCount(value === "" ? 12 : parseInt(value, 10)); // Ensures adultCount is always 12 or higher.
     }
   };
-
-  // handleInputChange  setAdultCount
+  
 
   const updateInfantCount = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
-    // Allow empty input or numbers only
-    if (value === "" || /^\d+$/.test(value)) {
+    if ((value === "" || /^\d+$/.test(value)) && (value === "" || parseInt(value, 10) <= 9)) {
       setInfantCount(value === "" ? 0 : parseInt(value, 10));
     }
   };
@@ -93,8 +95,7 @@ const BlueDocumentForm = () => {
         </p>
 
         <div className="flex space-x-5 mt-4">
-          
-          <label className={`flex items-center cursor-pointer  space-x-2 relative`}>
+          <label className={`flex items-center cursor-pointer space-x-2 relative`}>
             <input
               type="checkbox"
               checked={!isChecked}
@@ -113,18 +114,14 @@ const BlueDocumentForm = () => {
               className="appearance-none h-5 w-5 bg-gray-300 rounded-md checked:bg-gray-500 checked:border-transparent relative"
             />
             <span className="text-black">One Way</span>
-            {isChecked && (
-              <FaCheck className="text-white absolute right-[75px]"/>
-            )}
+            {isChecked && <FaCheck className="text-white absolute right-[75px]" />}
           </label>
         </div>
 
         <div className="grid grid-cols-2 gap-4 justify-center mx-5 mt-4">
           <div className="mb-4 relative">
             <p
-              className={`absolute left-4 top-1/2 transform -translate-y-1/2 font-bold transition-colors ${
-                isFromFocused ? "text-red-500" : "text-black"
-              }`}
+              className={`absolute left-4 top-1/2 transform -translate-y-1/2 font-bold transition-colors ${isFromFocused ? "text-red-500" : "text-black"}`}
             >
               From
             </p>
@@ -141,9 +138,7 @@ const BlueDocumentForm = () => {
 
           <div className="mb-4 relative">
             <p
-              className={`absolute left-4 top-1/2 transform -translate-y-1/2 font-bold transition-colors ${
-                isToFocused ? "text-red-500" : "text-black"
-              }`}
+              className={`absolute left-4 top-1/2 transform -translate-y-1/2 font-bold transition-colors ${isToFocused ? "text-red-500" : "text-black"}`}
             >
               To
             </p>
@@ -159,7 +154,7 @@ const BlueDocumentForm = () => {
           </div>
 
           <div className="col-span-2 flex space-x-5 ">
-            {!isChecked?(<DatePickerDemo />):("")}
+            {!isChecked ? <DatePickerDemo /> : ""}
             <DatePickerDemo />
           </div>
         </div>
@@ -175,6 +170,7 @@ const BlueDocumentForm = () => {
                 type="number"
                 value={adultCount}
                 onChange={handleInputChange}
+                max="9"
                 className="[&::-webkit-inner-spin-button]:appearance-none text-center [&::-webkit-outer-spin-button]:m-0 [appearance:textfield] border border-gray-300 rounded p-2 h-[30px] w-[250px]"
               />
               <button onClick={incrementAdults}>
@@ -184,9 +180,7 @@ const BlueDocumentForm = () => {
           </div>
 
           <div className="flex flex-col items-center">
-            <p className="text-white text-[10px] font-bold">
-              Children (2-11 Yrs)
-            </p>
+            <p className="text-white text-[10px] font-bold">Children (2-11 Yrs)</p>
             <div className="flex items-center pt-1">
               <button onClick={decrementChildren}>
                 <FiMinus className="bg-pink-500 h-[30px] w-[25px] p-2 rounded-l-md" />
@@ -194,8 +188,10 @@ const BlueDocumentForm = () => {
               <input
                 type="number"
                 value={childCount}
-                onChange={updateChildCount} // Using the renamed function
-                className="[&::-webkit-inner-spin-button]:appearance-none text-center [&::-webkit-outer-spin-button]:m-0 [appearance:textfield] border border-gray-300 rounded p-2 h-[30px] w-[250px]"/>
+                onChange={updateChildCount}
+                max="9"
+                className="[&::-webkit-inner-spin-button]:appearance-none text-center [&::-webkit-outer-spin-button]:m-0 [appearance:textfield] border border-gray-300 rounded p-2 h-[30px] w-[250px]"
+              />
               <button onClick={incrementChildren}>
                 <FaPlus className="bg-green-500 h-[30px] w-[25px] p-2 rounded-r-md" />
               </button>
@@ -203,18 +199,18 @@ const BlueDocumentForm = () => {
           </div>
 
           <div className="flex flex-col items-center">
-            <p className="text-white text-[10px] font-bold">
-              Infants (Below 2 Yrs)
-            </p>
+            <p className="text-white text-[10px] font-bold">Infants (Below 2 Yrs)</p>
             <div className="flex items-center pt-1">
               <button onClick={decrementInfants}>
                 <FiMinus className="bg-pink-500 h-[30px] w-[25px] p-2 rounded-l-md" />
               </button>
               <input
-                type="text"
+                type="number"
                 value={infantCount}
                 onChange={updateInfantCount}
-                className="[&::-webkit-inner-spin-button]:appearance-none text-center [&::-webkit-outer-spin-button]:m-0 [appearance:textfield] border border-gray-300 rounded p-2 h-[30px] w-[250px]"/>
+                max="9"
+                className="[&::-webkit-inner-spin-button]:appearance-none text-center [&::-webkit-outer-spin-button]:m-0 [appearance:textfield] border border-gray-300 rounded p-2 h-[30px] w-[250px]"
+              />
               <button onClick={incrementInfants}>
                 <FaPlus className="bg-green-500 h-[30px] w-[25px] p-2 rounded-r-md" />
               </button>
@@ -226,81 +222,69 @@ const BlueDocumentForm = () => {
           <div className="mt-5 bg-white w-[450px] h-[45px] p-2 rounded-md relative">
             <div className="flex justify-between" onClick={toggleDropdown}>
               <div className="flex">
-                <p className="font-bold">Class</p>
-                <p className="ml-2">{selectedClass}</p>{" "}
-                {/* Display the selected class here */}
+                <p className="font-bold mt-1">Class</p>
+                <p className="ml-2 mt-1">{selectedClass}</p>
               </div>
-              <IoIosArrowDown />
+              <IoIosArrowDown className="mt-2" />
             </div>
 
             {/* Dropdown Menu */}
             {isOpen && (
               <div className="absolute left-0 mt-2 w-full bg-white shadow-lg">
                 <ul className="p-2">
-                  <li
-                    className="py-2 px-4 hover:bg-gray-200"
-                    onClick={() => handleSelect("Select Class")}
-                  >
-                    Select Class
-                  </li>
-                  <li
-                    className="py-2 px-4 hover:bg-gray-200"
-                    onClick={() => handleSelect("Economy")}
-                  >
+                  <li className="py-2 px-4 hover:bg-gray-200" onClick={() => handleSelect("Economy")}>
                     Economy
                   </li>
-                  <li
-                    className="py-2 px-4 hover:bg-gray-200"
-                    onClick={() => handleSelect("Premium")}
-                  >
+                  <li className="py-2 px-4 hover:bg-gray-200" onClick={() => handleSelect("Premium")}>
                     Premium
                   </li>
-                  <li
-                    className="py-2 px-4 hover:bg-gray-200"
-                    onClick={() => handleSelect("Business")}
-                  >
+                  <li className="py-2 px-4 hover:bg-gray-200" onClick={() => handleSelect("Business")}>
                     Business
                   </li>
-                  <li
-                    className="py-2 px-4 hover:bg-gray-200"
-                    onClick={() => handleSelect("First")}
-                  >
+                  <li className="py-2 px-4 hover:bg-gray-200" onClick={() => handleSelect("First")}>
                     First
                   </li>
                 </ul>
               </div>
             )}
           </div>
-          <div className="bg-white w-[450px] rounded-md h-[45px] mt-5">
-            <p className="mt-3 ml-2">Airline</p>
-          </div>
           
+          <div className="mb-4 relative pt-5">
+            <p className={`absolute left-4 top-1/2 mt-3 transform -translate-y-1/2 font-bold transition-colors ${isAirlineFocused ? "text-red-500" : "text-black"}`}>
+              Airline
+            </p>
+            <input
+              type="text"
+              id="airline-name"
+              name="airline-name"
+              placeholder="Airline name"
+              onFocus={() => setIsAirlineFocused(true)}
+              onBlur={() => setIsAirlineFocused(false)}
+              className="block w-[450px] p-3 pl-20 mt-0.5 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
+            />
+          </div>
         </div>
 
         <div className="flex space-x-10">
-  <button className="flex bg-[#F1C933] mt-5 rounded-md p-3 w-[200px] justify-center items-center mx-auto">
-    <FaSearch className="text-[#0B43B1] font-bold" />
-    <p className="text-[#0B43B1] font-bold ml-3">Find Deals</p>
-  </button>
+          <button className="flex bg-[#F1C933] mt-5 rounded-md p-3 w-[200px] justify-center items-center mx-auto">
+            <FaSearch className="text-[#0B43B1] font-bold" />
+            <p className="text-[#0B43B1] font-bold ml-3">Find Deals</p>
+          </button>
 
-  <div className="flex justify-end mt-8 ">
-    <input
-      id="link-checkbox"
-      type="checkbox"
-      className="w-6 h-6 rounded-md text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-    />
-    <label
-      htmlFor="link-checkbox"
-      className="ms-2 text-sm font-medium text-white dark:text-gray-300"
-    >
-      Direct Flights
-    </label>
-  </div>
-</div>
-
-       
+          <div className="flex justify-end mt-8 ">
+            <input
+              id="link-checkbox"
+              type="checkbox"
+              className="w-6 h-6 rounded-md text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            />
+            <label htmlFor="link-checkbox" className="ms-2 text-sm font-medium text-white dark:text-gray-300">
+              Direct Flights
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   );
 };
+
 export default BlueDocumentForm;
