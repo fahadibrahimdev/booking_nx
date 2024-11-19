@@ -14,7 +14,6 @@ const BlueDocumentForm = () => {
   const [childCount, setChildCount] = useState(0);
   const [infantCount, setInfantCount] = useState(0);
   const [selectedClass, setSelectedClass] = useState("Select");
-  const [open, setisOpen] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleDropdown = () => {
@@ -159,9 +158,8 @@ const BlueDocumentForm = () => {
             />
           </div>
 
-          <div className="col-span-2 flex justify-center space-x-5 ">
+          <div className="col-span-2 flex space-x-5 ">
             {!isChecked?(<DatePickerDemo />):("")}
-            
             <DatePickerDemo />
           </div>
         </div>
