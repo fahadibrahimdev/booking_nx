@@ -7,6 +7,7 @@ import { FiMinus } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 
 const BlueDocumentForm = () => {
+  const [isRoundTrip, setIsRoundTrip] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
   const [isFromFocused, setIsFromFocused] = useState(false);
   const [isToFocused, setIsToFocused] = useState(false);
@@ -26,8 +27,14 @@ const BlueDocumentForm = () => {
     setIsOpen(false); // Close the dropdown after selection
   };
 
-  const handleSwitch = () => {
-    setIsChecked(!isChecked);
+  const toggleRoundTrip = () => {
+    setIsRoundTrip(true);
+    setIsChecked(false); // Uncheck "One Way" when "Round Trip" is selected
+  };
+
+  const toggleOneWay = () => {
+    setIsRoundTrip(false);
+    setIsChecked(true); // Uncheck "Round Trip" when "One Way" is selected
   };
 
   const incrementAdults = () => {
@@ -95,22 +102,22 @@ const BlueDocumentForm = () => {
         </p>
 
         <div className="flex space-x-5 mt-4">
-          <label className={`flex items-center cursor-pointer space-x-2 relative`}>
+        <label className={`flex items-center cursor-pointer space-x-2 relative`}>
             <input
               type="checkbox"
-              checked={!isChecked}
-              onChange={handleSwitch}
+              checked={isRoundTrip}
+              onChange={toggleRoundTrip}
               className="appearance-none h-5 w-5 bg-gray-300 rounded-md checked:bg-gray-500 checked:border-transparent relative"
             />
             <span className="text-black">Round Trips</span>
-            {!isChecked && <FaCheck className="text-white absolute right-24" />}
+            {isRoundTrip && <FaCheck className="text-white absolute right-24" />}
           </label>
 
           <label className="flex items-center cursor-pointer space-x-2 relative">
             <input
               type="checkbox"
               checked={isChecked}
-              onChange={handleSwitch}
+              onChange={toggleOneWay}
               className="appearance-none h-5 w-5 bg-gray-300 rounded-md checked:bg-gray-500 checked:border-transparent relative"
             />
             <span className="text-black">One Way</span>

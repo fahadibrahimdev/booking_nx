@@ -51,73 +51,73 @@ export default function Page() {
       id: "1",
       hoverImg: "ManilaPhilippines(1).avif",
       headingtext: "Manila, Philippines",
-      price: "£ 437"
+      price: "£ 437",
     },
     {
       id: "2",
       hoverImg: "lagos-nigeria.avif",
       headingtext: "Lagos, Nigeria",
-      price: "£ 390"
+      price: "£ 390",
     },
     {
       id: "3",
       hoverImg: "Accra-Ghana.avif",
       headingtext: "Accra, Ghana",
-      price: "£ 401"
+      price: "£ 401",
     },
     {
       id: "4",
       hoverImg: "HARARE-ZIMBABWE.avif",
       headingtext: "Harare, Zimbabwe",
-      price: "£ 457"
+      price: "£ 457",
     },
     {
       id: "5",
       hoverImg: "nairobi-kenya.jpg",
       headingtext: "Nairobi, Kenya",
-      price: "£ 328"
+      price: "£ 328",
     },
     {
       id: "6",
       hoverImg: "entebbe-uganda.jpg",
       headingtext: "Entebbe, Uganda",
-      price: "£ 331"
+      price: "£ 331",
     },
     {
       id: "7",
       hoverImg: "ADDISABABA-Ethiopia.avif",
       headingtext: "Addis Ababa, Ethiopia",
-      price: "£ 346"
-    },  
+      price: "£ 346",
+    },
     {
       id: "8",
       hoverImg: "johannesburg-southafrica.jpg",
       headingtext: "Johannesburg, South Africa",
-      price: "£ 372"
+      price: "£ 372",
     },
     {
       id: "9",
       hoverImg: "abuja-nigeria.avif",
       headingtext: "abuja-nigeria.avif",
-      price: "£ 560"
+      price: "£ 560",
     },
     {
       id: "10",
       hoverImg: "dakar-senegal.jpg",
       headingtext: "Dakar, Senegal",
-      price: "£ 355"
+      price: "£ 355",
     },
     {
       id: "11",
       hoverImg: "FREETOWN-SIERRALEONE.jpg",
       headingtext: "Freetown, Sierra Leone",
-      price: "£ 396"
-    },  
+      price: "£ 396",
+    },
     {
       id: "12",
       hoverImg: "MOMBASA-KENYA.avif",
       headingtext: "Mombasa, Kenya",
-      price: "£ 490"
+      price: "£ 490",
     },
   ];
 
@@ -147,7 +147,7 @@ export default function Page() {
       </div>
 
       {/* Scrollable Content Section */}
-      <div className="pt-20 pb-10 overflow-auto mt-[150px]">
+      <div className=" pb-10 overflow-auto pt-20">
         <div className="flex flex-row justify-center space-x-5">
           {Gradienttext.map((item) => (
             <GradientTextComp
@@ -169,26 +169,25 @@ export default function Page() {
 
           {/* Cards Section */}
           <div className="flex justify-center">
-            <div className="flex flex-wrap p-10 gap-5 w-[80%]">
+            <div className="flex flex-wrap p-10 gap-5 w-[80%] ml-10">
               {Hovercard.map((card) => (
-                <HoverImgCard 
-                  key={card.id} 
-                  hoverImg={card.hoverImg} 
-                  headingtext={card.headingtext} 
-                  price={card.price} 
+                <HoverImgCard
+                  key={card.id}
+                  hoverImg={card.hoverImg}
+                  headingtext={card.headingtext}
+                  price={card.price}
                 />
               ))}
             </div>
           </div>
 
-          {/* Blue Image Section */}
-          <div>
-            <BlueImgComp />
-          </div>
-
-          {/* Yellow Container Section */}
-          <div className="pt-10 mb-72">
-            <YellowContainer />
+          <div className="bg-white">
+            <div>
+              <BlueImgComp />
+            </div>
+            <div className="pt-10 mb-72">
+              <YellowContainer />
+            </div>
           </div>
         </div>
       </div>
