@@ -32,13 +32,13 @@ const BlueYellowHeader = ({}) => {
                 </div>
             </div>
 
-            <div className="flex flex-row justify-center space-x-5">
-              <p className="text-white hover:bg-[#0B42AF] p-2 mt-1">HOME</p>
-              <p className="text-white hover:bg-[#0B42AF] p-2 mt-1">FLIGHTS</p>
-              <p className="text-white hover:bg-[#0B42AF] p-2 mt-1">HOTELS</p>
-              <p className="text-white hover:bg-[#0B42AF] p-2 mt-1">REQUEST A CALLBACK</p>
-              <p className="text-white hover:bg-[#0B42AF] p-2 mt-1">UMRAH</p>
-              <p className="text-white hover:bg-[#0B42AF] p-2 mt-1">HAJJ</p>
+            <div className="flex flex-row justify-center space-x-5   ">
+              <p className="text-white bg-[#0B42AF] p-2 mt-1">HOME</p>
+              <p className="text-blue-700 hover:bg-[#EEEEEE] p-2 mt-1">FLIGHTS</p>
+              <p className="text-blue-700 hover:bg-[#EEEEEE] p-2 mt-1">HOTELS</p>
+              <p className="text-blue-700 hover:bg-[#EEEEEE] p-2 mt-1">REQUEST A CALLBACK</p>
+              <p className="text-blue-700 hover:bg-[#EEEEEE] p-2 mt-1">UMRAH</p>
+              <p className="text-blue-700 hover:bg-[#EEEEEE] p-2 mt-1">HAJJ</p>
             </div>
         </div>
     );

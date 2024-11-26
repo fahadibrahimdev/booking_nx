@@ -185,7 +185,7 @@ export default function Page() {
             <div>
               <BlueImgComp />
             </div>
-            <div className="pt-10 mb-72">
+            <div className="pt-10 ">
               <YellowContainer />
             </div>
           </div>
@@ -193,7 +193,7 @@ export default function Page() {
       </div>
 
       {/* Fixed Footer */}
-      <div className="fixed bottom-0 left-0 right-0 z-50">
+      <div className="">
         <Footer />
       </div>
     </div>

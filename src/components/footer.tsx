@@ -7,8 +7,8 @@ import { LuPhoneForwarded } from "react-icons/lu";
 
 const Footer = () => {
   return (
-    <div className="bg-white w-full h-[300px] relative">
-      <div className="flex justify-center pt-5 space-x-52">
+    <div className=" bg-white mt-7 w-full h-[300px]  bottom-0 ">
+      <div className="flex justify-center  space-x-52">
         {/* Contact Information Section */}
         <div className="flex flex-col">
           <p className="text-black font-bold text-[20px]">Get in Touch</p>
