@@ -76,9 +76,9 @@ const Footer = () => {
         <div className="flex flex-col">
           <p className="text-black font-bold text-[20px]">Find Us On</p>
           <div className="flex mt-10 space-x-3">
-            <FaTwitter className="text-white p-2 w-[30px] h-[30px] rounded-full hover:opacity-40 bg-blue-500 transform transition-all duration-1000 hover:rotate-[400deg]" />
-            <FaFacebookF className="text-white p-2 w-[30px] h-[30px] rounded-full bg-blue-600 hover:opacity-40 transform transition-all duration-1000 hover:rotate-[400deg]" />
-            <FaInstagramSquare className="text-white p-2 w-[30px] h-[30px] rounded-full bg-red-700 transform hover:opacity-40 transition-all duration-1000 hover:rotate-[400deg]" />
+            <FaTwitter className="text-white p-2 w-[30px] h-[30px] rounded-full hover:opacity-40 bg-blue-500 transform transition-all duration-1000 hover:rotate-[360deg]" />
+            <FaFacebookF className="text-white p-2 w-[30px] h-[30px] rounded-full bg-blue-600 hover:opacity-40 transform transition-all duration-1000 hover:rotate-[360deg]" />
+            <FaInstagramSquare className="text-white p-2 w-[30px] h-[30px] rounded-full bg-red-700 transform hover:opacity-40 transition-all duration-1000 hover:rotate-[360deg]" />
           </div>
         </div>
       </div>

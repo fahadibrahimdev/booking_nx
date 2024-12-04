@@ -169,7 +169,7 @@ export default function Page() {
 
           {/* Cards Section */}
           <div className="flex justify-center">
-            <div className="flex flex-wrap p-10 gap-5 w-[80%]">
+            <div className="flex flex-wrap p-10 gap-5 w-[80%] ml-8">
               {Hovercard.map((card) => (
                 <HoverImgCard
                   key={card.id}
