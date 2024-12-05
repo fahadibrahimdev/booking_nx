@@ -124,13 +124,13 @@ export default function Page() {
   return (
     <div className="relative">
       {/* Background image */}
-      <Image
+      {/* <Image
         src={"/home_bg.png"}
         height={750}
         width={1960}
         className="h-[750px] w-full object-cover"
         alt={""}
-      />
+      /> */}
 
       {/* Fixed Blue-Yellow Header */}
       <div className="absolute inset-x-0 top-0 z-50">
@@ -138,17 +138,17 @@ export default function Page() {
       </div>
 
       {/* Fixed Form */}
-      <div className="absolute inset-x-0 top-[80px] z-40">
+      {/* <div className="absolute inset-x-0 top-[80px] z-40">
         <BlueDocumentForm />
-      </div>
+      </div> */}
 
-      <div className="flex justify-center pt-16">
+      {/* <div className="flex justify-center pt-16">
         <p className="text-[30px] font-bold text-[#0B43B1]">Our Services</p>
-      </div>
+      </div> */}
 
       {/* Scrollable Content Section */}
       <div className=" pb-10 overflow-auto pt-20">
-        <div className="flex flex-row justify-center space-x-5">
+        {/* <div className="flex flex-row justify-center space-x-5">
           {Gradienttext.map((item) => (
             <GradientTextComp
               key={item.id}
@@ -157,18 +157,18 @@ export default function Page() {
               icon={item.Icon}
             />
           ))}
-        </div>
+        </div> */}
 
         <div className="bg-[#F8F8F8] w-full h-full mt-20">
-          <p className="text-[#0B42B0] text-[30px] font-bold text-center pt-20">
+          {/* <p className="text-[#0B42B0] text-[30px] font-bold text-center pt-20">
             Latest Airlines Deals
-          </p>
-          <p className="text-gray-600 font-bold text-[15px] text-center">
+          </p> */}
+          {/* <p className="text-gray-600 font-bold text-[15px] text-center">
             See below extraordinary series of our Airlines Deals
-          </p>
+          </p> */}
 
           {/* Cards Section */}
-          <div className="flex justify-center">
+          {/* <div className="flex justify-center">
             <div className="flex flex-wrap p-10 gap-5 w-[80%] ml-8">
               {Hovercard.map((card) => (
                 <HoverImgCard
@@ -179,23 +179,23 @@ export default function Page() {
                 />
               ))}
             </div>
-          </div>
+          </div> */}
 
           <div className="bg-white">
-            <div>
+            {/* <div>
               <BlueImgComp />
-            </div>
-            <div className="pt-10 ">
+            </div> */}
+            {/* <div className="pt-10 ">
               <YellowContainer />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
 
       {/* Fixed Footer */}
-      <div className="">
+      {/* <div className="">
         <Footer />
-      </div>
+      </div> */}
     </div>
   );
 }

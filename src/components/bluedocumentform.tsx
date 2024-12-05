@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FaCheck, FaPlus, FaSearch } from "react-icons/fa";
 import { DatePickerDemo } from "./datetimepicker";
 import { FiMinus } from "react-icons/fi";
@@ -17,10 +17,24 @@ const BlueDocumentForm = () => {
   const [selectedClass, setSelectedClass] = useState("Economy");
   const [isAirlineFocused, setIsAirlineFocused] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleDropdown = () => {
     setIsOpen((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsOpen(false); // Close dropdown if click is outside
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const handleSelect = (option: React.SetStateAction<string>) => {
     setSelectedClass(option);
@@ -226,7 +240,7 @@ const BlueDocumentForm = () => {
         </div>
 
         <div className="flex space-x-5">
-          <div className="mt-5 bg-white w-[450px] h-[45px] p-2 rounded-md relative">
+          <div className="mt-5 bg-white w-[450px] h-[45px] p-2 rounded-md relative" ref={dropdownRef}>
             <div className="flex justify-between" onClick={toggleDropdown}>
               <div className="flex">
                 <p className="font-bold mt-1">Class</p>
