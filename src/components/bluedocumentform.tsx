@@ -254,7 +254,7 @@ const BlueDocumentForm = () => {
 
             {/* Dropdown Menu */}
             {isOpen && (
-              <div className="absolute left-0 mt-2 md:w-full bg-white shadow-lg">
+              <div className="absolute left-0 z-50 mt-2 w-full bg-white shadow-lg">
                 <ul className="p-2">
                   <li className="py-2 px-4 hover:bg-gray-200" onClick={() => handleSelect("Economy")}>
                     Economy
@@ -290,12 +290,12 @@ const BlueDocumentForm = () => {
         </div>
 
         <div className="flex md:flex-row flex-col  md:space-x-10">
-          <button className="flex bg-[#F1C933] mt-5 rounded-md p-3 w-[200px] justify-center items-center mx-auto">
+          <button className="flex bg-[#F1C933] md:mt-5 rounded-md p-3 w-[200px] justify-center items-center mx-auto">
             <FaSearch className="text-[#0B43B1] font-bold" />
             <p className="text-[#0B43B1] font-bold ml-3">Find Deals</p>
           </button>
 
-          <div className="flex md:justify-end  md:mt-8 mt-5 md:ml-0 ml-10">
+          <div className="flex md:justify-end  md:mt-8 mt-2 md:ml-0 ml-10">
             <input
               id="link-checkbox"
               type="checkbox"

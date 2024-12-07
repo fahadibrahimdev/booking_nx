@@ -3,7 +3,7 @@ import { FaLocationArrow } from "react-icons/fa";
 
 const YellowContainer = () => {
   return (
-    <div className="bg-[#FFDB1A] w-full p-2 flex flex-row justify-center">
+    <div className="bg-[#FFDB1A] md:w-full p-2 flex md:flex-row  flex-col justify-center">
       <div>
         <p className="text-white font-bold text-[30px] leading-tight">
           Subscribe to our
@@ -19,7 +19,7 @@ const YellowContainer = () => {
         <input
           type="text"
           placeholder="Enter Your Destination"
-          className="text-[13px] w-[300px] p-3 border-2 border-black "
+          className="text-[13px] md:w-[300px] w-[316px] p-3 border-2 border-black "
           aria-label="Destination"
         />
       </div>
@@ -29,7 +29,7 @@ const YellowContainer = () => {
           <input
             type="text"
             placeholder="Enter Your Destination"
-            className="text-[13px] w-[200px] p-3 border-2 border-black "
+            className="text-[13px] md:w-[200px] p-3 border-2 border-black "
             aria-label="Destination"
           />
         </div>

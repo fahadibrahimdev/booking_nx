@@ -7,12 +7,12 @@ import { LuPhoneForwarded } from "react-icons/lu";
 
 const Footer = () => {
   return (
-    <div className=" bg-white mt-7 w-full h-[300px]  bottom-0 ">
-      <div className="flex justify-center  space-x-52">
+    <div className=" bg-white mt-7 w-full md:h-[300px] md:p-0 p-5  bottom-0 ">
+      <div className="flex md:flex-row flex-col justify-center  md:space-x-52">
         {/* Contact Information Section */}
         <div className="flex flex-col">
           <p className="text-black font-bold text-[20px]">Get in Touch</p>
-          <div className="flex mt-8">
+          <div className="flex md:mt-8 mt-2">
             <IoPersonOutline className="text-[#F1C933] text-[23px]" />
             <div className="ml-2">
               <p className="text-blue-500 text-[12px] font-bold">
@@ -44,9 +44,9 @@ const Footer = () => {
         </div>
 
         {/* Company Section */}
-        <div className="flex flex-col">
+        <div className="flex flex-col md:mt-0 mt-5">
           <p className="text-black font-bold text-[20px]">Company</p>
-          <div className="mt-8 space-y-2">
+          <div className="md:mt-8 space-y-2 mt-2">
             <p className="text-[12px] text-blue-500">About us</p>
             <p className="text-[12px] text-blue-500">Contact Us</p>
             <p className="text-[12px] text-blue-500">Bookmark Us</p>
@@ -58,9 +58,9 @@ const Footer = () => {
         </div>
 
         {/* Support Section */}
-        <div className="flex flex-col">
+        <div className="flex flex-col md:mt-0 mt-5">
           <p className="text-black font-bold text-[20px]">Support</p>
-          <div className="mt-8 space-y-2">
+          <div className="md:mt-8 mt-2 md:space-y-2">
             <p className="text-[12px] text-blue-500">Travel Tips</p>
             <p className="text-[12px] text-blue-500">Privacy Policy</p>
             <p className="text-[12px] text-blue-500">Enquiry Form</p>
@@ -73,9 +73,9 @@ const Footer = () => {
         </div>
 
         {/* Social Media Icons */}
-        <div className="flex flex-col">
+        <div className="flex flex-col mt-5">
           <p className="text-black font-bold text-[20px]">Find Us On</p>
-          <div className="flex mt-10 space-x-3">
+          <div className="flex md:mt-10 mt-3 space-x-3">
             <FaTwitter className="text-white p-2 w-[30px] h-[30px] rounded-full hover:opacity-40 bg-blue-500 transform transition-all duration-1000 hover:rotate-[360deg]" />
             <FaFacebookF className="text-white p-2 w-[30px] h-[30px] rounded-full bg-blue-600 hover:opacity-40 transform transition-all duration-1000 hover:rotate-[360deg]" />
             <FaInstagramSquare className="text-white p-2 w-[30px] h-[30px] rounded-full bg-red-700 transform hover:opacity-40 transition-all duration-1000 hover:rotate-[360deg]" />
@@ -89,7 +89,7 @@ const Footer = () => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <div className="fixed bottom-32 right-5">
+        <div className="fixed bottom-32 right-5 z-50">
           <Image
             src="/whatsapplogo.png" // Replace with the actual path to your image
             alt="Company Logo"

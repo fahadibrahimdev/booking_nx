@@ -141,13 +141,13 @@ export default function Page() {
         <BlueDocumentForm />
       </div> 
 
-      {/* <div className="flex justify-center pt-16">
+       <div className="flex justify-center pt-16">
         <p className="text-[30px] font-bold text-[#0B43B1]">Our Services</p>
-      </div> */}
+      </div> 
 
-      {/* Scrollable Content Section */}
+     
       <div className=" pb-10 overflow-auto pt-20">
-        {/* <div className="flex flex-row justify-center space-x-5">
+         <div className="flex md:flex-row flex-col justify-center space-x-5">
           {Gradienttext.map((item) => (
             <GradientTextComp
               key={item.id}
@@ -156,19 +156,19 @@ export default function Page() {
               icon={item.Icon}
             />
           ))}
-        </div> */}
+        </div> 
 
-        <div className="bg-[#F8F8F8] w-full h-full mt-20">
-          {/* <p className="text-[#0B42B0] text-[30px] font-bold text-center pt-20">
+        <div className="bg-[#F8F8F8] w-full h-full md:mt-20 mt-10">
+           <p className="text-[#0B42B0] text-[30px] font-bold text-center pt-20">
             Latest Airlines Deals
-          </p> */}
-          {/* <p className="text-gray-600 font-bold text-[15px] text-center">
+          </p> 
+           <p className="text-gray-600 font-bold md:text-[15px] text-[20px] text-center">
             See below extraordinary series of our Airlines Deals
-          </p> */}
+          </p> 
 
           {/* Cards Section */}
-          {/* <div className="flex justify-center">
-            <div className="flex flex-wrap p-10 gap-5 w-[80%] ml-8">
+           <div className="flex justify-center">
+            <div className="flex flex-wrap md:p-10 p-5 gap-5 w-[80%] ml-8">
               {Hovercard.map((card) => (
                 <HoverImgCard
                   key={card.id}
@@ -178,23 +178,23 @@ export default function Page() {
                 />
               ))}
             </div>
-          </div> */}
+          </div> 
 
           <div className="bg-white">
-            {/* <div>
+             <div className="md:mt-0 mt-5">
               <BlueImgComp />
-            </div> */}
-            {/* <div className="pt-10 ">
+            </div>
+            <div className="pt-10 ">
               <YellowContainer />
-            </div> */}
+            </div> 
           </div>
         </div>
       </div>
 
-      {/* Fixed Footer */}
-      {/* <div className="">
+       
+     <div className="">
         <Footer />
-      </div> */}
+      </div> 
     </div>
   );
 }
