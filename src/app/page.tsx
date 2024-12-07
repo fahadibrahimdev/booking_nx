@@ -123,24 +123,23 @@ export default function Page() {
 
   return (
     <div className="relative">
-      {/* Background image */}
-      {/* <Image
+       <Image
         src={"/home_bg.png"}
         height={750}
         width={1960}
-        className="h-[750px] w-full object-cover"
+        className="md:h-[750px] h-[1020px] w-full object-cover"
         alt={""}
-      /> */}
+      /> 
 
       {/* Fixed Blue-Yellow Header */}
       <div className="absolute inset-x-0 top-0 z-50">
         <BlueYellowHeader />
       </div>
 
-      {/* Fixed Form */}
-      {/* <div className="absolute inset-x-0 top-[80px] z-40">
+    
+       <div className="absolute inset-x-0 top-[80px] z-40">
         <BlueDocumentForm />
-      </div> */}
+      </div> 
 
       {/* <div className="flex justify-center pt-16">
         <p className="text-[30px] font-bold text-[#0B43B1]">Our Services</p>
