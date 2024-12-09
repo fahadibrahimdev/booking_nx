@@ -6,7 +6,7 @@ import { DatePickerDemo } from "./datetimepicker";
 import { FiMinus } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 
-const BlueDocumentForm = () => {
+const   BlueDocumentForm = () => {
   const [isRoundTrip, setIsRoundTrip] = useState(true);
   const [isChecked, setIsChecked] = useState(false);
   const [isFromFocused, setIsFromFocused] = useState(false);
@@ -154,7 +154,7 @@ const BlueDocumentForm = () => {
               placeholder="Departure city name"
               onFocus={() => setIsFromFocused(true)}
               onBlur={() => setIsFromFocused(false)}
-              className="block md:w-[450px] p-3 pl-20 mt-0.5 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
+              className="block md:w-[450px] p-3 pl-20  rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
             />
           </div>
 
@@ -171,7 +171,7 @@ const BlueDocumentForm = () => {
               placeholder="Return city name"
               onFocus={() => setIsToFocused(true)}
               onBlur={() => setIsToFocused(false)}
-              className="block md:w-[450px] p-3 pl-20 mt-0.5 rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
+              className="block md:w-[450px] p-3 pl-14  rounded-sm shadow-sm focus:outline-none focus:ring-2 focus:text-black focus:border-indigo-500 sm:text-sm"
             />
           </div>
           </div>

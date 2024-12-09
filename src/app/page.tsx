@@ -123,13 +123,18 @@ export default function Page() {
 
   return (
     <div className="relative">
-       <Image
-        src={"/home_bg.png"}
-        height={750}
-        width={1960}
-        className="md:h-[750px] h-[1020px] w-full object-cover"
-        alt={""}
-      /> 
+    <Image
+     src={"/home_bg.png"}
+     height={750}
+     width={1960}
+     className="md:h-[750px] h-[1020px] w-full object-cover"
+     alt={""}
+   /> 
+
+   {/* Fixed Blue-Yellow Header */}
+   <div className="absolute inset-x-0 top-0 z-50">
+     <BlueYellowHeader />
+   </div>
 
       {/* Fixed Blue-Yellow Header */}
       <div className="absolute inset-x-0 top-0 z-50">
@@ -191,7 +196,6 @@ export default function Page() {
         </div>
       </div>
 
-       
      <div className="">
         <Footer />
       </div> 

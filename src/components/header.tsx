@@ -1,18 +1,36 @@
-"use client"
-import React, { useState } from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdPerson } from "react-icons/io";
 import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useRouter } from "next/router";
 
 const BlueYellowHeader = ({}) => {
 
   const [isOpen, setIsOpen] = useState(false);
 
+  const [currentPath, setCurrentPath] = useState("/"); // Default to "/"
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      // Set current path on the client
+      setCurrentPath(window.location.pathname);
+    }
+  }, []); 
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
+
+  const menuItems = [
+    { name: "HOME", path: "/" },
+    { name: "FLIGHTS", path: "/flights" },
+    { name: "HOTELS", path: "/hotels" },
+    { name: "REQUEST A CALLBACK", path: "/callback" },
+    { name: "UMRAH", path: "/umrah" },
+    { name: "HAJJ", path: "/hajj" },
+  ];
   return (
     <div className="bg-[#F1C933] w-full md:h-[130px] h-[95px]">
       {" "}
@@ -57,24 +75,19 @@ const BlueYellowHeader = ({}) => {
           isOpen ? "max-h-[300px]" : "max-h-0"
         } md:max-h-none md:flex md:flex-row md:space-x-5 flex-col md:justify-center bg-[#F1C933]`}
       >
-        <p className="text-white p-3 mt-1 md:mt-0 bg-[#0B42AF] text-center md:text-left">
-          HOME
-        </p>
-        <p className="text-blue-700 hover:bg-[#EEEEEE] p-3 mt-1 md:mt-0 text-center md:text-left">
-          FLIGHTS
-        </p>
-        <p className="text-blue-700 hover:bg-[#EEEEEE] p-3 mt-1 md:mt-0 text-center md:text-left">
-          HOTELS
-        </p>
-        <p className="text-blue-700 hover:bg-[#EEEEEE] p-3 mt-1 md:mt-0 text-center md:text-left">
-          REQUEST A CALLBACK
-        </p>
-        <p className="text-blue-700 hover:bg-[#EEEEEE] p-3 mt-1 md:mt-0 text-center md:text-left">
-          UMRAH
-        </p>
-        <p className="text-blue-700 hover:bg-[#EEEEEE] p-3 mt-1 md:mt-0 text-center md:text-left">
-          HAJJ
-        </p>
+        {menuItems.map((item) => (
+          <a
+            key={item.name}
+            href={item.path}
+            className={`p-3 mt-1 md:mt-0 text-center md:text-left ${
+              currentPath === item.path
+                ? "bg-[#0B42AF] text-white"
+                : "text-blue-700 hover:bg-[#EEEEEE]"
+            }`}
+          >
+            {item.name}
+          </a>
+        ))}
       </div>
     </div>
   );

@@ -9,7 +9,6 @@ const Footer = () => {
   return (
     <div className=" bg-white mt-7 w-full md:h-[300px] md:p-0 p-5  bottom-0 ">
       <div className="flex md:flex-row flex-col justify-center  md:space-x-52">
-        {/* Contact Information Section */}
         <div className="flex flex-col">
           <p className="text-black font-bold text-[20px]">Get in Touch</p>
           <div className="flex md:mt-8 mt-2">
