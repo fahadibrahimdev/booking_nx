@@ -3,7 +3,9 @@ import React from "react";
 import Image from "next/image";
 import { LuPlane } from "react-icons/lu";
 
-interface ImgScaleCompProps {}
+interface ImgScaleCompProps {
+    
+}
 
 const ImgScaleComp: React.FC<ImgScaleCompProps> = () => {
   return (
@@ -24,10 +26,10 @@ const ImgScaleComp: React.FC<ImgScaleCompProps> = () => {
         </div>
       </div>
 
-      <div className="absolute inset-0 flex flex-col justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
+      <div className="absolute inset-0 flex flex-col  mt-10 items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out">
       <p className="text-black font-bold text-[5px] group-hover:text-[20px] transition-all duration-1000 ease-in-out transform group-hover:scale-125">Dar-ES-Salaam</p>
-      <button className="mt-4 px-6 py-2 bg-[#F1C933] text-black font-bold rounded-full hover:bg-[#d1b427] transition-colors duration-200">
-          Book Now
+      <button className="mt-4 px-3 py-2 bg-[#F1C933] text-blue-800 font-bold rounded-md hover:bg-[#d1b427] transition-colors duration-200">
+          More Details
         </button>
       </div>
     </div>
