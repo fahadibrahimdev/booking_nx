@@ -4,7 +4,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 import { IoMdPerson } from "react-icons/io";
 import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
-import { useRouter } from "next/router";
+import { Link } from "lucide-react";
 
 const BlueYellowHeader = ({}) => {
 
@@ -47,12 +47,12 @@ const BlueYellowHeader = ({}) => {
             alt="Logo"
           />
 
-          <a href="/">
+          <Link href="/">
           <div className="bg-[#3BC2FF] hidden md:flex w-[100px] h-[40px] mt-5 p-2  rounded-md">
               <IoMdPerson className="text-blue-900 bg-[#F1C933] rounded-full text-[20px]" />
               <button className="ml-1 font-bold text-[13px]">My Trips</button>
             </div>
-          </a>
+          </Link>
 
           <div className="flex md:mt-5">
             <FaPhoneAlt className="bg-[#3BC2FF] md:p-4 rounded-full text-[#F1C933] hidden md:block md:h-[52px] md:w-[52px]"/>
