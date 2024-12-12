@@ -370,6 +370,13 @@ export default function Flights() {
       heading: "New York",
     },
     {
+      id: "52",
+      imgProp: "/Islip.png",
+      subheading: "Islip...",
+      prize: "£340",
+      heading: "Islip",
+    },
+    {
       id: "53",
       imgProp: "/Jeddah.jpg",
       subheading: "Jeddah...",
@@ -389,6 +396,13 @@ export default function Flights() {
       subheading: "Dubai...",
       prize: "£410",
       heading: "Dubai",
+    },
+    {
+      id: "56",
+      imgProp: "/Windhoek.jpg",
+      subheading: "Windhoek...",
+      prize: "£470",
+      heading: "Windhoek",
     },
   ];
 
@@ -423,13 +437,13 @@ export default function Flights() {
             <p className="font-bold">0307 4081 964</p>
           </div>
           <div className="grid grid-cols-3 gap-5">
-            {ImgScale.map((item) => (
+            {ImgScale.map((ScaleCard) => (
               <ImgScaleComp
-                key={item.id}
-                subheading={item.subheading}
-                prize={item.prize}
-                heading={item.heading}
-                imgProp={item.imgProp}
+                key={ScaleCard.id}
+                subheading={ScaleCard.subheading}
+                prize={ScaleCard.prize}
+                heading={ScaleCard.heading}
+                imgProp={ScaleCard.imgProp}
               />
             ))}
           </div>

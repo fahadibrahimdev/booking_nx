@@ -1,7 +1,11 @@
-import React from "react";
+ "use client";
+
+import React, { useState } from "react";
 import HoverNumberbtnComp from "./hovernumberbtn";
 
 const SelectRegionComp = () => {
+
+  const [activeButton, setActiveButton] = useState<string>("1");
 
     const HoverNumerbtn = [
         {
@@ -58,6 +62,8 @@ const SelectRegionComp = () => {
         key={items.id}
         textbtn={items.textbtn}
         numberbtn={items.numberbtn} 
+        isActive={activeButton === items.id}
+        onClick={()=>setActiveButton(items.id)}
         />
       ))}
       </div>
